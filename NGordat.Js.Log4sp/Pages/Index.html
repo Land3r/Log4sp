@@ -1,0 +1,182 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+  Copyright 2002, 2005 The Apache Software Foundation.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+-->
+<html>
+<head>
+    <title>Log4sp Demo</title>
+
+    <link type="text/css" href="skin/basic.css" rel="stylesheet">
+    <link media="screen" type="text/css" href="skin/screen.css" rel="stylesheet">
+    <link media="print" type="text/css" href="skin/print.css" rel="stylesheet">
+    <link type="text/css" href="skin/profile.css" rel="stylesheet">
+
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <script src="../log4sp.js" type="text/javascript"></script>
+    <script type="text/javascript">
+		<!-- //
+		   var ajaxLog = new Log4sp.getLogger("ajaxTest");
+		   ajaxLog.setLevel(Log4sp.Level.ALL);
+		   var ajaxAppender = new Log4sp.AjaxAppender(ajaxLog, "./log4j.jsp");
+		   ajaxAppender.setThreshold(5);
+ 		   ajaxLog.addAppender(ajaxAppender);
+
+		   var consoleLog = new Log4sp.Logger("consoleTest");
+		   consoleLog.setLevel(Log4sp.Level.ALL);
+		   var consoleAppender = new Log4sp.ConsoleAppender(consoleLog, true);
+ 		   consoleLog.addAppender(consoleAppender);
+
+		   var windowLog = new Log4sp.getLogger("windowTest");
+		   windowLog.setLevel(Log4sp.Level.ALL);
+ 		   windowLog.addAppender(new Log4sp.ConsoleAppender(windowLog)); //to windowLog to seperate windowLog window
+
+		   var alertLog = new Log4sp.Logger("alertTest");
+		   alertLog.setLevel(Log4sp.Level.ALL);
+		   alertLog.addAppender(new Log4sp.JSAlertAppender(alertLog));
+
+		   var developerConsoleLog = new Log4sp.getLogger("developerTest");
+		   developerConsoleLog.setLevel(Log4sp.Level.ALL);
+		   developerConsoleLog.addAppender(new Log4sp.DeveloperConsoleAppender(developerConsoleLog));
+ 		// -->
+    </script>
+
+    <script type="text/javascript">
+<!--
+	function testAjax() {
+		var logger = Log4sp.getLogger("testlogger");
+		logger.setLevel(Log4sp.Level.ALL);
+		//logger.addAppender(new Log4sp.ConsoleAppender(logger));
+		logger.addAppender(new Log4sp.AjaxAppender(logger, "./log4j.jsp"));
+
+		for(var i = 0; i <5 ; i++) {
+			logger.info('an info ' + i);
+			logger.warn('a warning ' + i);
+			logger.error('an error ' + i);
+		}
+	}
+//-->
+    </script>
+
+</head>
+
+<body>
+    <div id="top">
+        <div class="header">
+            <div class="projectlogoA1">
+
+                <a href="http://stritti.github.io/log4sp//"></a>
+            </div>
+            <ul id="tabs">
+                <li class="current">
+                    <a class="selected" href="index.html">Home</a>
+                </li>
+                <li>
+                    <a class="unselected" href="docu/index.html">Documentation</a>
+                </li>
+                <li>
+                    <a class="unselected" href="project/index.html">Project</a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+    <div id="main">
+        <div id="publishedStrip">
+            <div id="level2tabs"></div>
+        </div>
+        <div class="breadtrail">
+            &nbsp;
+        </div>
+
+        <div id="main">
+            <div id="content">
+                <h1>Log4sp
+                <script type="text/javascript">document.write(Log4sp.version)</script> Examples</h1>
+                <p>
+                    <img src="images/project-logo.png">
+                    <a class="logoImage" alt="Log4sp" href="http://stritti.github.io/log4sp/" title="Logging Framework for JavaScript">Log4sp</a> is a JavaScript
+                    implementation of logging. Similar to the Java implementation Log4j.
+                </p>
+                <p style="color:red">
+                    Some loggers could cause a JavaScript exception on this page. This
+                    could happen because the browser do not support all features.
+                </p>
+                <noscript>
+                    <blockquote>
+                        <p>Log4sp examples can be used only when JavaScript is enabled!</p>
+                    </blockquote>
+                </noscript>
+
+                <fieldset>
+                    <legend>Inline Console Logging (toggle on with ALT-D; on FireFox 2.0 use: SHIFT+ALT+D)</legend>
+                    <input type="checkbox" onchange="consoleAppender.toggle();" /> show/hide console (TODO: Bind it to a keyboard event)
+                    <input type="text" id="consoleMessage" value="add consoleLog message" onchange="consoleLog.trace(document.getElementById('consoleMessage').value);" />
+                    <input type="button" name="trace" value="Trace Message" onclick="consoleLog.trace(document.getElementById('consoleMessage').value);" />
+                    <br />
+                    <input type="button" name="trace" value="Trace" onclick="consoleLog.trace('I was traced!');return false;" />
+                    <input type="button" name="debug" value="Debug" onclick="consoleLog.debug('I was debuged!');return false;" />
+                    <input type="button" name="info" value="Info" onclick="consoleLog.info('I was infoed!');return false;" />
+                    <input type="button" name="warn" value="Warn" onclick="consoleLog.warn('I was warned!');return false;" />
+                    <input type="button" name="error" value="Error" onclick="consoleLog.error('I was errored!');return false;" />
+                    <input type="button" name="fatal" value="Fatal" onclick="consoleLog.fatal('I was fataled!');return false;" />
+                </fieldset>
+
+                <fieldset>
+                    <legend>Developer Console Logging (F12)</legend>
+                    <input type="text" id="consoleMessage" value="add consoleLog message" onchange="developerConsoleLog.trace(document.getElementById('consoleMessage').value);" />
+                    <input type="button" name="trace" value="Trace Message" onclick="developerConsoleLog.trace(document.getElementById('consoleMessage').value);" />
+                    <br />
+                    <input type="button" name="trace" value="Trace" onclick="developerConsoleLog.trace('I was traced!'); return false;" />
+                    <input type="button" name="debug" value="Debug" onclick="developerConsoleLog.debug('I was debuged!'); return false;" />
+                    <input type="button" name="info" value="Info" onclick="developerConsoleLog.info('I was infoed!'); return false;" />
+                    <input type="button" name="warn" value="Warn" onclick="developerConsoleLog.warn('I was warned!'); return false;" />
+                    <input type="button" name="error" value="Error" onclick="developerConsoleLog.error('I was errored!'); return false;" />
+                    <input type="button" name="fatal" value="Fatal" onclick="developerConsoleLog.fatal('I was fataled!'); return false;" />
+                </fieldset>
+
+                <fieldset>
+                    <legend>Ajax Logging</legend>
+                    <input type="text" id="ajaxMessage" value="add ajaxLog message" onchange="ajaxLog.trace(document.getElementById('ajaxMessage').value);" />
+                    <input type="button" name="trace" value="Trace Message" onclick="ajaxLog.trace(document.getElementById('ajaxMessage').value);" />
+                    <br />
+                    <input type="button" name="trace" value="Trace" onclick="ajaxLog.trace('I was traced!');return false;" />
+                    <input type="button" name="debug" value="Debug" onclick="ajaxLog.debug('I was debuged!');return false;" />
+                    <input type="button" name="info" value="Info" onclick="ajaxLog.info('I was infoed!');return false;" />
+                    <input type="button" name="warn" value="Warn" onclick="ajaxLog.warn('I was warned!');return false;" />
+                    <input type="button" name="error" value="Error" onclick="ajaxLog.error('I was errored!');return false;" />
+                    <input type="button" name="fatal" value="Fatal" onclick="ajaxLog.fatal('I was fataled!');return false;" />
+                    <br />
+                    Sending a bigger number of logs: <input type="button" name="trace" value="ajaxTest" onclick="testAjax();return false;" />
+                </fieldset>
+
+                <fieldset>
+                    <legend>Alert Logging</legend>
+                    <input type="text" id="alertMessage" value="add alertLog message" onchange="alertLog.trace(document.getElementById('alertMessage').value);" />
+                    <input type="button" name="trace" value="Trace Message" onclick="alertLog.trace(document.getElementById('alertMessage').value);" />
+                    <br />
+                    <input type="button" name="trace" value="Trace" onclick="alertLog.trace('I was traced!');return false;" />
+                    <input type="button" name="debug" value="Debug" onclick="alertLog.debug('I was debuged!');return false;" />
+                    <input type="button" name="info" value="Info" onclick="alertLog.info('I was infoed!');return false;" />
+                    <input type="button" name="warn" value="Warn" onclick="alertLog.warn('I was warned!');return false;" />
+                    <input type="button" name="error" value="Error" onclick="alertLog.error('I was errored!');return false;" />
+                    <input type="button" name="fatal" value="Fatal" onclick="alertLog.fatal('I was fataled!');return false;" />
+                </fieldset>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

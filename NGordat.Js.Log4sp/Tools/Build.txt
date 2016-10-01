@@ -1,0 +1,12 @@
+﻿../Sources/log4sp.js
+../Sources/level.js
+../Sources/logger.js
+../Sources/custom-event.js
+../Sources/logging-event.js
+../Sources/appender.js
+../Sources/appenders/*.js
+../Sources/layout.js
+../Sources/layouts/*.js
+../Sources/date-formatter.js
+../Sources/fifo-buffer.js
+../Sources/log4sp-all.js
