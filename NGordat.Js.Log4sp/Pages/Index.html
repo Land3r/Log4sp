@@ -51,6 +51,10 @@
 		   var developerConsoleLog = new Log4sp.getLogger("developerTest");
 		   developerConsoleLog.setLevel(Log4sp.Level.ALL);
 		   developerConsoleLog.addAppender(new Log4sp.DeveloperConsoleAppender(developerConsoleLog));
+
+		   var sharepointLog = new Log4sp.getLogger("sharepointTest");
+		   sharepointLog.setLevel(Log4sp.Level.ALL);
+		   sharepointLog.addAppender(new Log4sp.SharepointAppender(sharepointLog));
  		// -->
     </script>
 
@@ -137,8 +141,8 @@
 
                 <fieldset>
                     <legend>Developer Console Logging (F12)</legend>
-                    <input type="text" id="consoleMessage" value="add consoleLog message" onchange="developerConsoleLog.trace(document.getElementById('consoleMessage').value);" />
-                    <input type="button" name="trace" value="Trace Message" onclick="developerConsoleLog.trace(document.getElementById('consoleMessage').value);" />
+                    <input type="text" id="developerConsoleMessage" value="add developerConsoleLog message" onchange="developerConsoleLog.trace(document.getElementById('developerConsoleMessage').value);" />
+                    <input type="button" name="trace" value="Trace Message" onclick="developerConsoleLog.trace(document.getElementById('developerConsoleMessage').value);" />
                     <br />
                     <input type="button" name="trace" value="Trace" onclick="developerConsoleLog.trace('I was traced!'); return false;" />
                     <input type="button" name="debug" value="Debug" onclick="developerConsoleLog.debug('I was debuged!'); return false;" />
@@ -174,6 +178,19 @@
                     <input type="button" name="warn" value="Warn" onclick="alertLog.warn('I was warned!');return false;" />
                     <input type="button" name="error" value="Error" onclick="alertLog.error('I was errored!');return false;" />
                     <input type="button" name="fatal" value="Fatal" onclick="alertLog.fatal('I was fataled!');return false;" />
+                </fieldset>
+
+                <fieldset>
+                    <legend>Sharepoint Logging</legend>
+                    <input type="text" id="sharepointMessage" value="add sharepointLog message" onchange="sharepointLog.trace(document.getElementById('alertMessage').value);" />
+                    <input type="button" name="trace" value="Trace Message" onclick="sharepointLog.trace(document.getElementById('alertMessage').value);" />
+                    <br />
+                    <input type="button" name="trace" value="Trace" onclick="sharepointLog.trace('I was traced!'); return false;" />
+                    <input type="button" name="debug" value="Debug" onclick="sharepointLog.debug('I was debuged!'); return false;" />
+                    <input type="button" name="info" value="Info" onclick="sharepointLog.info('I was infoed!'); return false;" />
+                    <input type="button" name="warn" value="Warn" onclick="sharepointLog.warn('I was warned!'); return false;" />
+                    <input type="button" name="error" value="Error" onclick="sharepointLog.error('I was errored!'); return false;" />
+                    <input type="button" name="fatal" value="Fatal" onclick="sharepointLog.fatal('I was fataled!'); return false;" />
                 </fieldset>
             </div>
         </div>

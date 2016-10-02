@@ -83,13 +83,13 @@
     <Content Include="Sources\log4sp.js" />
     <Content Include="Sources\logger.js" />
     <Content Include="Sources\logging-event.js" />
+    <Content Include="Tools\Build.txt" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Sources\log4sp.dtd" />
-    <Content Include="Tools\Build.txt" />
     <Content Include="Tools\Build.ps1" />
   </ItemGroup>
   <ItemGroup />
