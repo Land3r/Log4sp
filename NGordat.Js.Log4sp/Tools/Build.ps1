@@ -14,7 +14,7 @@ Catch
 	return
 }
 
-Write-Host 'Building Application.'
+Write-Host "Building file $Target."
 
 # Create fresh target file
 $targetFile = New-Item $Target -Type file -Force
@@ -25,4 +25,4 @@ foreach($file in $files)
 	Get-Content $file | Add-Content $Target
 }
 
-Write-Host 'Finished Building Application.'
+Write-Host "Finished building $Target."
